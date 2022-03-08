@@ -7,7 +7,12 @@
 * Doom
 This section is used to fully configure =init.el=.
 ** doom!ing
-#+begin_src emacs-lisp :tangle "init.el"
+:PROPERTIES:
+:header-args:emacs-lisp: :tangle no
+:END:
+
+#+name: init.el
+#+begin_src emacs-lisp :tangle "init.el" :noweb yes
 ;;; init.el -*- lexical-binding: t; -*-
 
 ;; This file controls what Doom modules are enabled and what order they load
@@ -25,9 +30,100 @@ This section is used to fully configure =init.el=.
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-(doom!)
+(doom! :input
+       <<doom-input>>
+       :completion
+       <<doom-completion>>
+       :ui
+       <<doom-ui>>
+       :editor
+       <<doom-editor>>
+       :emacs
+       <<doom-emacs>>
+       :term
+       <<doom-term>>
+       :checkers
+       <<doom-checkers>>
+       :tools
+       <<doom-tools>>
+       :os
+       <<doom-os>>
+       :lang
+       <<doom-lang>>
+       :email
+       <<doom-email>>
+       :app
+       <<doom-app>>
+       :config
+       <<doom-config>>)
 #+end_src
 
+*** Modules
+**** Input
+#+name: doom-input
+#+begin_src emacs-lisp
+; input modules
+#+end_src
+**** Completion
+#+name: doom-completion
+#+begin_src emacs-lisp
+; completion modules
+#+end_src
+**** UI
+#+name: doom-ui
+#+begin_src emacs-lisp
+; UI modules
+#+end_src
+**** Editor
+#+name: doom-editor
+#+begin_src emacs-lisp
+; editor modules
+#+end_src
+**** Emacs
+#+name: doom-emacs
+#+begin_src emacs-lisp
+; emacs modules
+#+end_src
+**** Terminal
+#+name: doom-term
+#+begin_src emacs-lisp
+; terminal modules
+#+end_src
+**** Checkers
+#+name: doom-checkers
+#+begin_src emacs-lisp
+; checkers modules
+#+end_src
+**** Tools
+#+name: doom-tools
+#+begin_src emacs-lisp
+; tools modules
+#+end_src
+**** OS
+#+name: doom-os
+#+begin_src emacs-lisp
+; os modules
+#+end_src
+**** Languages
+#+name: doom-lang
+#+begin_src emacs-lisp
+; lang modules
+#+end_src
+**** E-Mail
+#+name: doom-email
+#+begin_src emacs-lisp
+; email modules
+#+end_src
+**** Applications
+#+name: doom-app
+#+begin_src emacs-lisp
+; applications modules
+#+end_src
+**** Configuration
+#+name: doom-config
+#+begin_src emacs-lisp
+; configuration modules
+#+end_src
 * Configuration
 ** This is me :3
 Some functionality uses this to identify me, e.g. GPG configuration, email
