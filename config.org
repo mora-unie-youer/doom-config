@@ -64,6 +64,9 @@ This section is used to fully configure =init.el=.
 #+name: doom-input
 #+begin_src emacs-lisp
 ; input modules
+;;chinese       ; chinese input integration
+;;japanese      ; japanese input integration
+;;layout
 #+end_src
 **** Completion
 #+name: doom-completion
