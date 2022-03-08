@@ -55,7 +55,8 @@ This section is used to fully configure =init.el=.
        :app
        <<doom-app>>
        :config
-       <<doom-config>>)
+       <<doom-config>>
+)
 #+end_src
 
 *** Modules
@@ -126,6 +127,7 @@ This section is used to fully configure =init.el=.
 (default        ; configuration defaults
  +bindings      ; configuration default bindings
  +smartparens)  ; enable smartparens
+literate        ; enable support for configuration in .org file
 #+end_src
 * Configuration
 ** This is me :3
