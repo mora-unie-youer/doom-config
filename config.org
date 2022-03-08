@@ -138,6 +138,15 @@ word-wrap               ; soft wrapping with language-aware indent
 #+name: doom-emacs
 #+begin_src emacs-lisp
 ; emacs modules
+(dired                  ; making dired pretty
+ +icons                 ; enabling icons in dired
+ +ranger)               ; making dired to be more like ranger
+electric                ; smarted, keyword-based electric-indent
+(ibuffer                ; interactive buffer management
+ +icons)                ; enabling icons in ibuffer
+(undo                   ; persistent, smarter undo for your inevitable mistakes
+ +tree)                 ; using undo-tree instead of undo-fu
+vc                      ; version-control and Emacs, sitting in a tree
 #+end_src
 **** Terminal
 #+name: doom-term
