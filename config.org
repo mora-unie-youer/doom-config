@@ -1,0 +1,85 @@
+#+TITLE:    Mora Unie Youer's Doom Emacs configuration
+#+AUTHOR:   Mora Unie Youer
+#+EMAIL:    mora_unie_youer@riseup.net
+#+LANGUAGE: en
+#+PROPERTY: header-args :tangle yes :results silent :cache yes :padline no
+
+* Configuration
+** This is me :3
+Some functionality uses this to identify me, e.g. GPG configuration, email
+clients, file templates and snippets. It is optional.
+#+begin_src emacs-lisp
+(setq user-full-name    "Mora Unie Youer"
+      user-mail-address "mora_unie_youer@riseup.net")
+#+end_src
+
+** UI
+*** Fonts
+Really like FiraCode font, so I will use it. <3
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 11 :weight 'semi-light))
+#+end_src
+
+*** Line numbers
+This determines the style of line numbers in effect. If set to =nil=, line
+numbers are disabled. For relative line numbers, set this to =relative=.
+#+begin_src emacs-lisp
+(setq display-line-numbers-type t)
+#+end_src
+
+*** Theme
+This is theme I really like. :3
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-1337)
+#+end_src
+
+** org-mode
+Let's be honest. This thing is really impressive. So, I need to configure it for
+my purposes. I hope that org-mode will change my life.
+*** org-directory
+I store my .org files in =~/.org= directory.
+#+begin_src emacs-lisp
+(setq org-directory "~/.org/")
+#+end_src
+
+*** org-crypt
+To use this thing as I want, I need to configure epa package.
+#+begin_src emacs-lisp
+(after! epa
+  (setq epg-pinentry-mode 'ask
+        epa-file-encrypt-to "0xAD29C911170324A2"))
+#+end_src
+
+*** org-agenda
+Correcting org-agenda file names (files from org-journal break colors)
+#+begin_src emacs-lisp
+(setq org-agenda-prefix-format '((agenda . " %i %-16:c%?-12t% s")
+                                 (todo   . " %i %-16:c")
+                                 (tags   . " %i %-16:c")
+                                 (search . " %i %-16:c")))
+#+end_src
+
+Saving DONE time in TODOs.
+#+begin_src emacs-lisp
+(setq org-log-done 'time)
+#+end_src
+
+*** org-journal
+Changing formats that org-journal uses.
+#+begin_src emacs-lisp
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-date-format "%A, %Y-%m-%d"
+      org-journal-time-prefix "* "
+      org-journal-time-format "%r %Z"
+      org-journal-file-format "%Y-%m-%d.org")
+#+end_src
+
+Enabling journal encryption.
+#+begin_src emacs-lisp
+(setq org-journal-encrypt-journal t)
+#+end_src
+
+Enabling org-agenda integration.
+#+begin_src emacs-lisp
+(setq org-journal-enable-agenda-integration t)
+#+end_src
