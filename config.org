@@ -228,6 +228,13 @@ tty                     ; improve the terminal Emacs experience
 #+name: doom-app
 #+begin_src emacs-lisp
 ; applications modules
+calendar                ;
+emms                    ; do you like music?
+everywhere              ; *leave* Emacs!? You must be joking
+irc                     ; how neckbeards socialize
+(rss                    ; Emacs as an RSS reader
+ +org)                  ; enable org integration
+;;twitter               ; twitter client
 #+end_src
 **** Configuration
 #+name: doom-config
