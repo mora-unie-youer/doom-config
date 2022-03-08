@@ -161,6 +161,13 @@ vterm                   ; the best terminal emulation in Emacs
 #+name: doom-checkers
 #+begin_src emacs-lisp
 ; checkers modules
+(syntax                 ; tasing you for every semicolon you forget
+ +childframe)           ; displaying in a child frame
+(spell                  ; tasing you for misspelling misspelling
+ +aspell                ; using aspell as backend
+ +everywhere            ; tasing you everywhere
+ +flyspell)             ; using `flyspell` instead of `spell-fu`
+grammar
 #+end_src
 **** Tools
 #+name: doom-tools
