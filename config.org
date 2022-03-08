@@ -218,6 +218,11 @@ tty                     ; improve the terminal Emacs experience
 #+name: doom-email
 #+begin_src emacs-lisp
 ; email modules
+;;(mu4e +gmail +org)    ; mu4e email client
+(notmuch                ; notmuch email client
+ +afew                  ; enable integration with `afew`
+ +org)                  ; enable org-mime for writing HTML emails
+;;(wanderlust +gmail)   ;
 #+end_src
 **** Applications
 #+name: doom-app
