@@ -123,6 +123,9 @@ This section is used to fully configure =init.el=.
 #+name: doom-config
 #+begin_src emacs-lisp
 ; configuration modules
+(default        ; configuration defaults
+ +bindings      ; configuration default bindings
+ +smartparens)  ; enable smartparens
 #+end_src
 * Configuration
 ** This is me :3
