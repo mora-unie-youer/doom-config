@@ -73,7 +73,7 @@ This section is used to fully configure =init.el=.
 #+begin_src emacs-lisp
 ; completion modules
 (company                ; the ultimate code completion backend
- );;+childframe)           ; enable displaying completion candidates in child frame
+ );;+childframe)        ; enable displaying completion candidates in child frame
 ;;helm                  ; the *other* search engine for love and life
 ;;ido                   ; the other *other* search engine...
 ;;ivy                   ; a search engine for love and life
@@ -128,8 +128,8 @@ fold                    ; (nigh) universal code folding
 ;;god                   ; run Emacs commands without modifier keys
 ;;lispy                 ; vim for lisp, for people who don't like vim
 multiple-cursors        ; editing in many places at once
-;;objed                   ; text object editing for the innocent
-;;parinfer                ; turn lisp into python, sort of
+;;objed                 ; text object editing for the innocent
+;;parinfer              ; turn lisp into python, sort of
 rotate-text             ; cycle region at point between text candidates
 snippets                ; my elves. They tipe so I don't have to
 word-wrap               ; soft wrapping with language-aware indent
@@ -269,7 +269,7 @@ nim                     ; python + lisp at the speed of C
 ocaml                   ; an objective camel
 (org                    ; organize your plain life in plain text
  +brain                 ; org-brain
- +journal               ; org-journal
+ ;;+journal             ; org-journal
  +noter                 ; org-noter
  +present               ; org-presentations
  +pretty                ; better displaying of org-mode
@@ -415,26 +415,6 @@ Saving DONE time in TODOs.
 (setq org-log-done 'time)
 #+end_src
 
-*** org-journal
-Changing formats that org-journal uses.
-#+begin_src emacs-lisp
-(setq org-journal-date-prefix "#+TITLE: "
-      org-journal-date-format "%A, %Y-%m-%d"
-      org-journal-time-prefix "* "
-      org-journal-time-format "%r %Z"
-      org-journal-file-format "%Y-%m-%d.org")
-#+end_src
-
-Enabling journal encryption.
-#+begin_src emacs-lisp
-(setq org-journal-encrypt-journal t)
-#+end_src
-
-Enabling org-agenda integration.
-#+begin_src emacs-lisp
-(setq org-journal-enable-agenda-integration t)
-#+end_src
-
 *** org-roam
 Adding useful templates for org-roam notes.
 #+begin_src emacs-lisp
@@ -446,7 +426,7 @@ Adding useful templates for org-roam notes.
 
 Adding useful templates for org-roam to replace org-journal.
 #+begin_src emacs-lisp
-(setq org-roam-dailies-capture-templates (let ((head (concat "#+TITLE: %<%A, %Y-%m-%d>\n\n"
+(setq org-roam-dailies-capture-templates (let ((head (concat "#+TITLE: %<%A, %Y-%m-%d>\n"
                                                              "* [/] Do Today\n"
                                                              "* [/] Maybe Do Today\n"
                                                              "* Journal\n")))
