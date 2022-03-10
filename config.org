@@ -429,3 +429,14 @@ Enabling org-agenda integration.
 #+begin_src emacs-lisp
 (setq org-journal-enable-agenda-integration t)
 #+end_src
+
+*** org-roam
+#+begin_src emacs-lisp
+(setq org-roam-capture-templates '(("d" "default" plain "%?"
+                                    :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                                                       "#+TITLE: ${title}\n")
+                                    :unnarrowed t))
+      org-roam-dailies-capture-templates '(("d" "default" entry "* %?"
+                                            :target (file+head "%<%Y-%m-%d>.org"
+                                                               "#+TITLE: %<%A, %Y-%m-%d>\n"))))
+#+end_src
