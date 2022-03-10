@@ -397,6 +397,11 @@ To use this thing as I want, I need to configure epa package.
 #+end_src
 
 *** org-agenda
+Looking for agenda in org-roam daily notes.
+#+begin_src emacs-lisp
+(setq org-agenda-files (list (expand-file-name "~/.org/roam/daily")))
+#+end_src
+
 Correcting org-agenda file names (files from org-journal break colors)
 #+begin_src emacs-lisp
 (setq org-agenda-prefix-format '((agenda . " %i %-16:c%?-12t% s")
@@ -431,12 +436,30 @@ Enabling org-agenda integration.
 #+end_src
 
 *** org-roam
+Adding useful templates for org-roam notes.
 #+begin_src emacs-lisp
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
                                     :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                                                        "#+TITLE: ${title}\n")
-                                    :unnarrowed t))
-      org-roam-dailies-capture-templates '(("d" "default" entry "* %?"
-                                            :target (file+head "%<%Y-%m-%d>.org"
-                                                               "#+TITLE: %<%A, %Y-%m-%d>\n"))))
+                                    :unnarrowed t)))
+#+end_src
+
+Adding useful templates for org-roam to replace org-journal.
+#+begin_src emacs-lisp
+(setq org-roam-dailies-capture-templates (let ((head (concat "#+TITLE: %<%A, %Y-%m-%d>\n\n"
+                                                             "* [/] Do Today\n"
+                                                             "* [/] Maybe Do Today\n"
+                                                             "* Journal\n")))
+                                           `(("j" "journal" entry "* %<%r %Z>\n%?"
+                                              :if-new (file+head+olp "%<%Y-%m-%d>.org" ,head ("Journal")))
+                                             ("t" "do today" entry "* TODO %?"
+                                              :if-new (file+head+olp "%<%Y-%m-%d>.org" ,head ("Do Today")))
+                                             ("T" "do today (link)" entry "* TODO %a"
+                                              :if-new (file+head+olp "%<%Y-%m-%d>.org" ,head ("Do Today"))
+                                              :immediate-finish t)
+                                             ("m" "maybe do today" entry "* TODO %?"
+                                              :if-new (file+head+olp "%<%Y-%m-%d>.org" ,head ("Maybe Do Today")))
+                                             ("M" "maybe do today (link)" entry "* TODO %a"
+                                              :if-new (file+head+olp "%<%Y-%m-%d>.org" ,head ("Maybe Do Today"))
+                                              :immediate-finish t))))
 #+end_src
