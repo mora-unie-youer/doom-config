@@ -499,3 +499,13 @@ Adding useful templates for org-roam to replace org-journal.
                                               :if-new (file+head+olp ,file ,head ("Maybe Do Today"))
                                               :immediate-finish t))))
 #+end_src
+
+*** org-fc
+This should help me with learning information from my knowledge storage, I hope.
+
+Adding =org-fc= package.
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! org-fc
+  :recipe (:host github :repo "l3kn/org-fc")
+  :pin "f64b5336485a42be91cfe77850c02a41575f5984")
+#+end_src
