@@ -128,7 +128,7 @@ This section is used to fully configure =init.el=.
 #+begin_src emacs-lisp
 ; completion modules
 (company                ; the ultimate code completion backend
- );;+childframe)        ; enable displaying completion candidates in child frame
+ +childframe)           ; enable displaying completion candidates in child frame
 ;;helm                  ; the *other* search engine for love and life
 ;;ido                   ; the other *other* search engine...
 ;;ivy                   ; a search engine for love and life
