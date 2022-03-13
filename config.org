@@ -475,6 +475,11 @@ Saving DONE time in TODOs.
 #+end_src
 
 *** org-roam
+Setting =org-roam= directory.
+#+begin_src emacs-lisp
+(setq org-roam-directory (expand-file-name "~/.org/roam"))
+#+end_src
+
 Adding useful templates for org-roam notes.
 #+begin_src emacs-lisp
 (setq org-roam-capture-templates '(("d" "default" plain "%?"
