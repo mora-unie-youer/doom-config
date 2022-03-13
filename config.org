@@ -512,9 +512,17 @@ Adding useful templates for org-roam to replace org-journal.
 *** org-fc
 This should help me with learning information from my knowledge storage, I hope.
 
-Adding =org-fc= package.
+** Reset
+This is my programming language :3
+
+Adding =reset-mode= package.
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! org-fc
-  :recipe (:host github :repo "l3kn/org-fc")
-  :pin "f64b5336485a42be91cfe77850c02a41575f5984")
+(package! reset-mode
+  :recipe (:host github :repo "mora-unie-youer/reset-mode")
+  :pin "6da07e54472f12a9c75655bf4179151cae06fd4d")
+#+end_src
+
+Using =reset-mode=.
+#+begin_src emacs-lisp
+(use-package! reset-mode)
 #+end_src
