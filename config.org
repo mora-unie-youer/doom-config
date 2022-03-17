@@ -324,7 +324,7 @@ ledger                  ; be audit you can be
 (markdown               ; writing docs for people to ignore
  +grip)                 ; enable grip support
 nim                     ; python + lisp at the speed of C
-;;nix                   ; I hereby declare "nix geht mehr!"
+nix                     ; I hereby declare "nix geht mehr!"
 ocaml                   ; an objective camel
 (org                    ; organize your plain life in plain text
  +brain                 ; org-brain
