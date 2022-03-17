@@ -527,3 +527,12 @@ Using =reset-mode=.
 #+begin_src emacs-lisp
 (use-package! reset-mode)
 #+end_src
+
+Adding ligatures to Reset.
+#+begin_src emacs-lisp
+(after! reset-mode
+  (set-ligatures! 'reset-mode
+    :null "NULL"
+    :false "FALSE" :true "TRUE"
+    :return "return"))
+#+end_src
