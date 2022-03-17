@@ -330,6 +330,7 @@ ocaml                   ; an objective camel
  +brain                 ; org-brain
  ;;+journal             ; org-journal
  +noter                 ; org-noter
+ +pomodoro              ; org-pomodoro
  +present               ; org-presentations
  +pretty                ; better displaying of org-mode
  +roam2)                ; knowledge system
