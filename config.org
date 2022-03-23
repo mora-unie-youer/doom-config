@@ -520,12 +520,17 @@ Adding =reset-mode= package.
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! reset-mode
   :recipe (:host github :repo "mora-unie-youer/reset-mode")
-  :pin "6da07e54472f12a9c75655bf4179151cae06fd4d")
+  :pin "8e89cfa6cbdbd43d31fe6ebb3a0d6ac56bff53d8")
 #+end_src
 
 Using =reset-mode=.
 #+begin_src emacs-lisp
 (use-package! reset-mode)
+#+end_src
+
+Configuring indentation
+#+begin_src emacs-lisp
+(setq reset-indent-level 2)
 #+end_src
 
 Adding ligatures to Reset.
@@ -535,4 +540,12 @@ Adding ligatures to Reset.
     :null "NULL"
     :false "FALSE" :true "TRUE"
     :return "return"))
+#+end_src
+
+Adding new rule for highlight-numbers-mode
+#+begin_src emacs-lisp
+(after! highlight-numbers
+  (puthash 'reset-mode
+           "\\_<\\(?:[[:digit:]]+\\|0[Xx][[:xdigit:]]+\\)\\_>"
+           highlight-numbers-modelist))
 #+end_src
