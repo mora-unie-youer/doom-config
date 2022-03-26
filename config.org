@@ -534,6 +534,15 @@ Adding keybinding to toggle =aggressive-indent-mode=.
         :desc "Aggressive indent mode" "a" #'aggressive-indent-mode))
 #+end_src
 
+*** Emacs Lisp
+Useful keybindings for package development.
+#+begin_src emacs-lisp
+(after! elisp-mode
+  (map! :localleader
+        :map emacs-lisp-mode-map
+        "c" #'emacs-lisp-byte-compile-and-load))
+#+end_src
+
 *** Reset
 This is my programming language :3
 
