@@ -430,7 +430,7 @@ Really like FiraCode font, so I will use it. <3
 This determines the style of line numbers in effect. If set to =nil=, line
 numbers are disabled. For relative line numbers, set this to =relative=.
 #+begin_src emacs-lisp
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 #+end_src
 
 *** Theme
