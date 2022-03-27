@@ -510,6 +510,25 @@ Adding useful templates for org-roam to replace org-journal.
                                               :immediate-finish t))))
 #+end_src
 
+Adding =org-roam-ui= package for web server.
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! org-roam-ui)
+#+end_src
+
+Using =org-roam-ui=.
+#+begin_src emacs-lisp
+(use-package! websocket
+  :after org-roam)
+
+(use-package! org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+#+end_src
+
 *** org-fc
 This should help me with learning information from my knowledge storage, I hope.
 
