@@ -582,6 +582,13 @@ Some useful tweaks for =company-mode=.
   (add-hook 'evil-normal-state-entry-hook #'company-abort)) ;; make aborting less annoying.
 #+end_src
 
+** Calculator
+Default values for calculator.
+#+begin_src emacs-lisp
+(setq calc-angle-mode 'rad  ; radians are rad
+      calc-symbolic-mode t) ; keeps expressions like \sqrt{2} irrational for as long as possible
+#+end_src
+
 ** Programming
 *** Aggressive indentation
 Adding =aggressive-indent= package.
