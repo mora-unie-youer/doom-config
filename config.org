@@ -546,6 +546,23 @@ Using =org-pretty-table= package.
   :commands (org-pretty-table-mode global-org-pretty-table-mode))
 #+end_src
 
+** which-key
+Making popup a bit faster
+#+begin_src emacs-lisp
+(setq which-key-idle-delay 0.5)
+#+end_src
+
+Replacing =evil-= in function names
+#+begin_src emacs-lisp
+(setq which-key-allow-multiple-replacements t)
+(after! which-key
+  (pushnew!
+   which-key-replacement-alist
+   '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
+   '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
+   ))
+#+end_src
+
 ** Programming
 *** Aggressive indentation
 Adding =aggressive-indent= package.
