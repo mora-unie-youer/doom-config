@@ -563,6 +563,15 @@ Replacing =evil-= in function names
    ))
 #+end_src
 
+** Evil
+Some =evil-mode= tweaks.
+#+begin_src emacs-lisp
+(after! evil
+  (setq evil-ex-substitute-global t     ; I like my s/../.. to be global by default
+        evil-move-cursor-back nil       ; Don't move the block cursor when toggling insert mode
+        evil-kill-on-visual-paste nil)) ; Don't put overwritten text in the kill ring
+#+end_src
+
 ** Programming
 *** Aggressive indentation
 Adding =aggressive-indent= package.
