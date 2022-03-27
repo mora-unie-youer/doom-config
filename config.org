@@ -532,6 +532,20 @@ Using =org-roam-ui=.
 *** org-fc
 This should help me with learning information from my knowledge storage, I hope.
 
+*** org-pretty-table
+Adding =org-pretty-table= package.
+#+begin_src emacs-lisp :tangle packages.el
+(package! org-pretty-table
+  :recipe (:host github :repo "Fuco1/org-pretty-table") :pin "7bd68b420d3402826fea16ee5099d04aa9879b78")
+#+end_src
+
+Using =org-pretty-table= package.
+#+begin_src emacs-lisp
+(use-package! org-pretty-table
+  :hook (org-mode . org-pretty-table-mode)
+  :commands (org-pretty-table-mode global-org-pretty-table-mode))
+#+end_src
+
 ** Programming
 *** Aggressive indentation
 Adding =aggressive-indent= package.
