@@ -572,6 +572,16 @@ Some =evil-mode= tweaks.
         evil-kill-on-visual-paste nil)) ; Don't put overwritten text in the kill ring
 #+end_src
 
+** Company
+Some useful tweaks for =company-mode=.
+#+begin_src emacs-lisp
+(after! company
+  (setq company-idle-delay 0.5
+        company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
+  (add-hook 'evil-normal-state-entry-hook #'company-abort)) ;; make aborting less annoying.
+#+end_src
+
 ** Programming
 *** Aggressive indentation
 Adding =aggressive-indent= package.
