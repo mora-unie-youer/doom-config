@@ -442,6 +442,16 @@ This is theme I really like. :3
 ** org-mode
 Let's be honest. This thing is really impressive. So, I need to configure it for
 my purposes. I hope that org-mode will change my life.
+*** Timestamps
+#+begin_src emacs-lisp
+(after! org
+  (setq time-stamp-active t
+        time-stamp-start "#\\+MODIFIED:[ \t]*"
+        time-stamp-end "$"
+        time-stamp-format "\[%Y-%m-%d %A %H:%M:%S\]"))
+(add-hook 'before-save-hook 'time-stamp)
+#+end_src
+
 *** org-directory
 I store my .org files in =~/.org= directory.
 #+begin_src emacs-lisp
@@ -493,6 +503,8 @@ Adding useful templates for org-roam to replace org-journal.
 #+begin_src emacs-lisp
 (setq org-roam-dailies-capture-templates (let ((file "%<%Y-%m-%d>.org")
                                                (head (concat "#+TITLE: %<%A, %Y-%m-%d>\n"
+                                                             "#+CREATED: %U\n"
+                                                             "#+MODIFIED: %U\n"
                                                              "* [/] Do Today\n"
                                                              "* [/] Maybe Do Today\n"
                                                              "* Journal\n")))
