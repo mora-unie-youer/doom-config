@@ -159,6 +159,7 @@ hydra                   ;
  +fira)                 ; FiraCode ligatures
 minimap                 ; show a map of the code on the side
 modeline                ; snazzy, Atom-inspired modeline
+;; +light)              ; light version of modeline
 nav-flash               ; blink cursor line after big motions
 ;;neotree               ; a project drawer, like NERDTree
 ophints                 ; highlight the region an operation acts on
