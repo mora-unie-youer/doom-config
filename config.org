@@ -280,7 +280,7 @@ tty                     ; improve the terminal Emacs experience
 (clojure                ; java with a lisp
  +lsp)                  ; enable lsp integration
 common-lisp             ; if you've seen one lisp, you've seen them all
-;;coq                   ; proofs-as-programs
+coq                     ; proofs-as-programs
 ;;crystal               ; ruby at the speed of c
 ;;csharp                ; unity, .NEW, and mono shenanigans
 ;;data                  ; config/data formats
@@ -289,8 +289,10 @@ common-lisp             ; if you've seen one lisp, you've seen them all
 ;;elixir                ; erlang done right
 ;;elm                   ; care for a cup of TEA?
 emacs-lisp              ; drown in parentheses
-;;erlang                ; an elegant language for a more civilized age
-ess                     ; emacs speaks statistics
+(erlang                 ; an elegant language for a more civilized age
+ +lsp)                  ; enable lsp integration
+(ess                    ; emacs speaks statistics
+ +lsp)                  ; enable lsp integration
 ;;factor                ;
 ;;faust                 ; dsp, but you get to keep your soul
 ;;fortran               ; in FORTRAN, GOD is REAL (unless declared INTEGER)
@@ -310,13 +312,14 @@ ess                     ; emacs speaks statistics
  +lsp)                  ; enable lsp integration
 (json                   ; at least it ain't XML
  +lsp)                  ; enable lsp integration
-;;julia                 ; a better, faster MATLAB
+(julia                  ; a better, faster MATLAB
+ +lsp)                  ; enable lsp integration
 (kotlin                 ; a better, slicker Java(Script)
  +lsp)                  ; enable lsp integration
 (latex                  ; writing papers in Emacs has never been so fun
  +cdlatex               ; enable cdlatex
  +lsp)                  ; enable lsp integration
-;;lean                  ; for folks with too much to prove
+lean                    ; for folks with too much to prove
 ledger                  ; be audit you can be
 (lua                    ; one-based indices? one-based indices
  +fennel                ; enable Fennel language support
@@ -326,7 +329,8 @@ ledger                  ; be audit you can be
  +grip)                 ; enable grip support
 nim                     ; python + lisp at the speed of C
 nix                     ; I hereby declare "nix geht mehr!"
-ocaml                   ; an objective camel
+(ocaml                  ; an objective camel
+ +lsp)                  ; enable lsp integration
 (org                    ; organize your plain life in plain text
  +brain                 ; org-brain
  ;;+journal             ; org-journal
@@ -339,13 +343,16 @@ ocaml                   ; an objective camel
  +hack                  ; enable Hack dialect support
  +lsp)                  ; enable lsp integration
 ;;plantuml              ; diagrams for confusing people more
-;;purescript            ; javascript, but functional
+(purescript             ; javascript, but functional
+ +lsp)                  ; enable lsp integration
 (python                 ; beautiful is better than ugly
  +cython                ; enable Cython files support
  +lsp                   ; enable lsp integration
  +pyenv)                ; enable `pyenv` support
 qt                      ; the 'cutest' gui framework ever
-;;racket                ; a DSL for DSLs
+(racket                 ; a DSL for DSLs
+ +lsp                   ; enable lsp integration
+ +xp)                   ; something useful, I guess :P
 raku                    ; the artist formerly known as perl6
 rest                    ; Emacs as a REST client
 ;;rst                   ; ReST in peace
@@ -372,9 +379,11 @@ rest                    ; Emacs as a REST client
  +lsp)                  ; enable lsp integration
 ;;sml                   ;
 solidity                ; do you need a blockchain? No.
-swift                   ; who asked for emoji variables?
-;;terra                 ; Earth and Moon in alignment for performance
-web                     ; the tubes
+(swift                  ; who asked for emoji variables?
+ +lsp)                  ; enable lsp integration
+terra                   ; Earth and Moon in alignment for performance
+(web                    ; the tubes
+ +lsp)                  ; enable lsp integration
 (yaml                   ; JSON, but readable
  +lsp)                  ; enable lsp integration
 (zig                    ; C, but simpler
