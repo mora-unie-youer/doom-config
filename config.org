@@ -452,6 +452,12 @@ This is theme I really like. :3
 ** org-mode
 Let's be honest. This thing is really impressive. So, I need to configure it for
 my purposes. I hope that org-mode will change my life.
+*** Literate config
+Disable tangle on save.
+#+begin_src emacs-lisp
+(remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
+#+end_src
+
 *** Timestamps
 #+begin_src emacs-lisp
 (after! org
