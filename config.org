@@ -517,25 +517,44 @@ Adding useful templates for org-roam notes.
 
 Adding useful templates for org-roam to replace org-journal.
 #+begin_src emacs-lisp
-(setq org-roam-dailies-capture-templates (let ((file "%<%Y-%m-%d>.org")
-                                               (head (concat "#+TITLE: %<%A, %Y-%m-%d>\n"
-                                                             "#+CREATED: %U\n"
-                                                             "#+MODIFIED: %U\n"
-                                                             "* [/] Do Today\n"
-                                                             "* [/] Maybe Do Today\n"
-                                                             "* Journal\n")))
-                                           `(("j" "journal" entry "* %<%r %Z>\n%?"
-                                              :if-new (file+head+olp ,file ,head ("Journal")))
-                                             ("t" "do today" entry "* TODO %?"
-                                              :if-new (file+head+olp ,file ,head ("Do Today")))
-                                             ("T" "do today (link)" entry "* TODO %a"
-                                              :if-new (file+head+olp ,file ,head ("Do Today"))
-                                              :immediate-finish t)
-                                             ("m" "maybe do today" entry "* TODO %?"
-                                              :if-new (file+head+olp ,file ,head ("Maybe Do Today")))
-                                             ("M" "maybe do today (link)" entry "* TODO %a"
-                                              :if-new (file+head+olp ,file ,head ("Maybe Do Today"))
-                                              :immediate-finish t))))
+(defun +org/diary-catalog-entry ()
+  "Generate entry for catalog."
+  (let* ((org-roam-plist (plist-get org-capture-plist :org-roam))
+         (time (plist-get org-roam-plist :override-default-time))
+         (title (format-time-string "%A, %Y-%m-%d" time))
+         (node (org-roam-node-from-title-or-alias title)))
+    (if node
+        (format "[[id:%s][%s]]" (org-roam-node-id node) title)
+      (error "Diary entry '%s' doesn't exist." title))))
+
+(setq org-roam-dailies-capture-templates
+      (let ((catalog-file "catalog-%<%Y-%m>.org")
+            (catalog-head (concat "#+TITLE: %<%B, %Y>\n"
+                                  "#+CREATED: %U\n"
+                                  "#+MODIFIED: %U\n"
+                                  "* Entries\n"))
+            (journal-file "%<%Y-%m-%d>.org")
+            (journal-head (concat "#+TITLE: %<%A, %Y-%m-%d>\n"
+                                  "#+CREATED: %U\n"
+                                  "#+MODIFIED: %U\n"
+                                  "* [/] Do Today\n"
+                                  "* [/] Maybe Do Today\n"
+                                  "* Journal\n")))
+        `(("c" "catalog" item (function +org/diary-catalog-entry)
+           :if-new (file+head+olp ,catalog-file ,catalog-head ("Entries"))
+           :immediate-finish t)
+          ("j" "journal" entry "* %<%r %Z>\n%?"
+           :if-new (file+head+olp ,journal-file ,journal-head ("Journal")))
+          ("t" "do today" entry "* TODO %?"
+           :if-new (file+head+olp ,journal-file ,journal-head ("Do Today")))
+          ("T" "do today (link)" entry "* TODO %a"
+           :if-new (file+head+olp ,journal-file ,journal-head ("Do Today"))
+           :immediate-finish t)
+          ("m" "maybe do today" entry "* TODO %?"
+           :if-new (file+head+olp ,journal-file ,journal-head ("Maybe Do Today")))
+          ("M" "maybe do today (link)" entry "* TODO %a"
+           :if-new (file+head+olp ,journal-file ,journal-head ("Maybe Do Today"))
+           :immediate-finish t))))
 #+end_src
 
 Adding =org-roam-ui= package for web server.
