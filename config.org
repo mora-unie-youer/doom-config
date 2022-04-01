@@ -630,6 +630,14 @@ Default values for calculator.
       calc-symbolic-mode t) ; keeps expressions like \sqrt{2} irrational for as long as possible
 #+end_src
 
+Keybinding for calculator to open.
+#+begin_src emacs-lisp
+(after! evil
+  (map! :leader
+        :prefix "o"
+        :desc "Calculator" "c" #'calc))
+#+end_src
+
 Embedded calculation.
 #+begin_src emacs-lisp
 (map! :map calc-mode-map
