@@ -430,6 +430,39 @@ clients, file templates and snippets. It is optional.
 #+end_src
 
 ** UI
+*** Dashboard
+Setting splash image.
+#+begin_src emacs-lisp
+(setq fancy-splash-image (concat doom-private-dir "avatar.png"))
+(setq +doom-dashboard-banner-padding '(0 . 2))
+#+end_src
+
+Showing only banner and loaded message.
+#+begin_src emacs-lisp
+(setq +doom-dashboard-functions '(doom-dashboard-widget-banner
+                                  doom-dashboard-widget-loaded))
+#+end_src
+
+Adding message to loaded message.
+#+begin_src emacs-lisp
+(defadvice! doom-dashboard-widget-loaded-with-message ()
+  "Print some message in dashboard."
+  :override #'doom-dashboard-widget-loaded
+  (insert
+   (propertize
+    (+doom-dashboard--center
+     +doom-dashboard--width
+     "Welcome to the club, buddy!")
+    'face 'doom-dashboard-menu-title)
+   "\n"
+   (propertize
+    (+doom-dashboard--center
+     +doom-dashboard--width
+     (doom-display-benchmark-h 'return))
+    'face 'doom-dashboard-loaded)
+   "\n"))
+#+end_src
+
 *** Fonts
 Really like FiraCode font, so I will use it. <3
 #+begin_src emacs-lisp
