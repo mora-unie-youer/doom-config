@@ -626,6 +626,49 @@ Using =org-pretty-table= package.
   :commands (org-pretty-table-mode global-org-pretty-table-mode))
 #+end_src
 
+*** Flasher
+This is my flashcard system :3
+
+Setting =flasher= preferences.
+#+begin_src emacs-lisp
+(setq flasher-directories '("~/.org/roam")
+      flasher-review-learn-count nil
+      flasher-review-review-count nil)
+#+end_src
+
+Adding =flasher= package.
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! flasher
+  :recipe (:host github :repo "mora-unie-youer/flasher")
+  :pin "1a06d7908a9cfaba10e36f1d8328d9c923991361")
+#+end_src
+
+Using =flasher=.
+#+begin_src emacs-lisp
+(use-package! flasher
+  :config
+  (after! evil
+    (evil-define-key* '(normal insert emacs) flasher-dashboard-mode-map
+      "r" #'flasher-review
+      "q" #'kill-current-buffer)
+    (evil-define-minor-mode-key '(normal insert emacs) 'flasher-review-flip-mode
+      (kbd "RET") 'flasher-review-flip
+      (kbd "e")   'flasher-review-edit
+      (kbd "s")   'flasher-review-skip
+      (kbd "q")   'flasher-review-quit
+      (kbd "w")   'flasher-review-hint)
+    (evil-define-minor-mode-key '(normal insert emacs) 'flasher-review-rate-mode
+      (kbd "0") 'flasher-review-rate-0
+      (kbd "1") 'flasher-review-rate-1
+      (kbd "2") 'flasher-review-rate-2
+      (kbd "3") 'flasher-review-rate-3
+      (kbd "4") 'flasher-review-rate-4
+      (kbd "5") 'flasher-review-rate-5
+      (kbd "e") 'flasher-review-edit
+      (kbd "s") 'flasher-review-skip
+      (kbd "q") 'flasher-review-quit)))
+#+end_src
+
 ** which-key
 Making popup a bit faster
 #+begin_src emacs-lisp
