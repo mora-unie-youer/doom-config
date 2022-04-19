@@ -164,7 +164,7 @@ nav-flash               ; blink cursor line after big motions
 ;;neotree               ; a project drawer, like NERDTree
 ophints                 ; highlight the region an operation acts on
 (popup +all)            ; tame sudden yet inevitable temporary windows
-tabs                    ; a tab bar for Emacs
+;;tabs                  ; a tab bar for Emacs
 (treemacs               ; a project drawer, like neotree but cooler
  +lsp)                  ; enable lsp integration
 unicode                 ; extended unicode support for various languages
