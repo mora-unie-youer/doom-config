@@ -640,7 +640,7 @@ Adding =flasher= package.
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! flasher
   :recipe (:host github :repo "mora-unie-youer/flasher")
-  :pin "1a06d7908a9cfaba10e36f1d8328d9c923991361")
+  :pin "bc53ba6f07f80e58aa4979481797d5e52c091af0")
 #+end_src
 
 Using =flasher=.
@@ -651,10 +651,12 @@ Using =flasher=.
     (evil-define-key* '(normal insert emacs) flasher-dashboard-mode-map
       "r" #'flasher-review
       "q" #'kill-current-buffer)
+    (evil-define-minor-mode-key '(normal insert emacs) 'flasher-dashboard-deck-mode
+      (kbd "q") 'flasher-dashboard-decks)
     (evil-define-minor-mode-key '(normal insert emacs) 'flasher-review-flip-mode
       (kbd "RET") 'flasher-review-flip
       (kbd "e")   'flasher-review-edit
-      (kbd "s")   'flasher-review-skip
+      (kbd "s")   'flasher-review-next-card
       (kbd "q")   'flasher-review-quit
       (kbd "w")   'flasher-review-hint)
     (evil-define-minor-mode-key '(normal insert emacs) 'flasher-review-rate-mode
@@ -665,7 +667,7 @@ Using =flasher=.
       (kbd "4") 'flasher-review-rate-4
       (kbd "5") 'flasher-review-rate-5
       (kbd "e") 'flasher-review-edit
-      (kbd "s") 'flasher-review-skip
+      (kbd "s") 'flasher-review-next-card
       (kbd "q") 'flasher-review-quit)))
 #+end_src
 
